@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.blogspot.mszalbach</groupId>
+    <artifactId>flexsample-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <description>FlexSample</description>
+
+
+    <packaging>pom</packaging>
+
+    <prerequisites>
+         <maven>3.0.3</maven>
+    </prerequisites>
+    
+    <properties>
+        <flexmojos.version>4.2-beta</flexmojos.version>
+        <flex.version>4.5.1.21328</flex.version>
+        <flexunit.version>4.0-rc-1</flexunit.version>
+    </properties>
+    <modules>
+        <module>swf-standalone</module>
+        <module>swc</module>
+        <module>swf-air</module>
+        <module>air</module>
+    </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.sonatype.flexmojos</groupId>
+                    <artifactId>flexmojos-maven-plugin</artifactId>
+                    <version>${flexmojos.version}</version>
+                    <extensions>true</extensions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.4.3</version>
+                    <configuration>
+                        <escapeString>\</escapeString>
+                    </configuration>
+                </plugin>
+            </plugins>
+
+        </pluginManagement>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.adobe.flex.framework</groupId>
+                <artifactId>flex-framework</artifactId>
+                <version>${flex.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.flex.framework</groupId>
+                <artifactId>air-framework</artifactId>
+                <version>${flex.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.flexunit</groupId>
+                <artifactId>flexunit</artifactId>
+                <version>${flexunit.version}</version>
+                <type>swc</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <repositories>
+        <repository>
+            <id>sonatype-repository</id>
+            <url>http://repository.sonatype.org/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>flexgroup-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>flexgroup-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</project>
